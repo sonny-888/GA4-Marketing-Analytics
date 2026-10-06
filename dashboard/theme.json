@@ -1,0 +1,162 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.157.json",
+  "name": "Merch Store Analytics Review",
+  "dataColors": [
+    "#5E81AC",
+    "#D08770",
+    "#88C0D0",
+    "#B48EAD",
+    "#A3BE8C",
+    "#EBCB8B",
+    "#81A1C1",
+    "#4C566A"
+  ],
+  "background": "#FFFFFF",
+  "secondaryBackground": "#ECEFF4",
+  "foreground": "#2E3440",
+  "foregroundNeutralSecondary": "#4C566A",
+  "foregroundNeutralTertiary": "#5C667A",
+  "foregroundSelected": "#3B5B85",
+  "disabledText": "#A9B3C6",
+  "tableAccent": "#5E81AC",
+  "accent": "#5E81AC",
+  "good": "#4A7336",
+  "neutral": "#8A6A1E",
+  "bad": "#A3434C",
+  "maximum": "#3B5B85",
+  "center": "#88C0D0",
+  "minimum": "#E5E9F0",
+  "null": "#D8DEE9",
+  "textClasses": {
+    "largeTitle": {
+      "fontSize": 20,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#2E3440"
+    },
+    "callout": {
+      "fontSize": 26,
+      "fontFace": "Segoe UI",
+      "color": "#2E3440"
+    },
+    "title": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#2E3440"
+    },
+    "header": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#2E3440"
+    },
+    "label": {
+      "fontSize": 9,
+      "fontFace": "Segoe UI",
+      "color": "#4C566A"
+    },
+    "smallLabel": {
+      "fontSize": 8,
+      "fontFace": "Segoe UI",
+      "color": "#5C667A"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#D8DEE9"
+              }
+            },
+            "radius": 8
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ],
+        "padding": [
+          {
+            "top": 16,
+            "bottom": 16,
+            "left": 16,
+            "right": 16
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontFamily": "Segoe UI Semibold",
+            "fontSize": 12,
+            "fontColor": {
+              "solid": {
+                "color": "#2E3440"
+              }
+            },
+            "alignment": "left",
+            "titleWrap": true
+          }
+        ],
+        "subTitle": [
+          {
+            "fontFamily": "Segoe UI",
+            "fontSize": 9,
+            "fontColor": {
+              "solid": {
+                "color": "#4C566A"
+              }
+            },
+            "alignment": "left",
+            "titleWrap": true
+          }
+        ],
+        "spacing": [
+          {
+            "customizeSpacing": true,
+            "spaceBelowTitle": 4,
+            "spaceBelowSubTitle": 8,
+            "spaceBelowTitleArea": 12
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#ECEFF4"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#ECEFF4"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

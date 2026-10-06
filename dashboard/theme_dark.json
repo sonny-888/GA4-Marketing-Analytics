@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.157.json",
+  "name": "Marketing Analytics · Night",
+  "dataColors": ["#9C88FF", "#4FD1E0", "#F472B6", "#4ADE80", "#FBBF24", "#6E6990", "#C4B5FD", "#FF7A90"],
+  "background": "#262241",
+  "secondaryBackground": "#1F1B35",
+  "foreground": "#F5F4FA",
+  "foregroundNeutralSecondary": "#B8B3D1",
+  "foregroundNeutralTertiary": "#9893B5",
+  "foregroundSelected": "#F5F4FA",
+  "disabledText": "#6E6990",
+  "backgroundLight": "#2E2A4C",
+  "backgroundNeutral": "#38335A",
+  "tableAccent": "#9C88FF",
+  "accent": "#F472B6",
+  "good": "#4ADE80",
+  "neutral": "#FBBF24",
+  "bad": "#FF7A90",
+  "maximum": "#9C88FF",
+  "center": "#5B4FA0",
+  "minimum": "#2E2A4C",
+  "null": "#38335A",
+  "textClasses": {
+    "largeTitle": { "fontSize": 22, "fontFace": "Segoe UI Semibold", "color": "#F5F4FA" },
+    "callout": { "fontSize": 24, "fontFace": "Segoe UI Semibold", "color": "#F5F4FA" },
+    "title": { "fontSize": 11, "fontFace": "Segoe UI Semibold", "color": "#F5F4FA" },
+    "header": { "fontSize": 10, "fontFace": "Segoe UI Semibold", "color": "#F5F4FA" },
+    "label": { "fontSize": 9, "fontFace": "Segoe UI", "color": "#B8B3D1" },
+    "smallLabel": { "fontSize": 8, "fontFace": "Segoe UI", "color": "#9893B5" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#262241" } }, "transparency": 0 }],
+        "border": [{ "show": false, "radius": 10 }],
+        "dropShadow": [{ "show": false }],
+        "padding": [{ "top": 16, "bottom": 16, "left": 16, "right": 16 }],
+        "title": [{
+          "show": true,
+          "fontFamily": "Segoe UI Semibold",
+          "fontSize": 11,
+          "fontColor": { "solid": { "color": "#F5F4FA" } },
+          "alignment": "left",
+          "titleWrap": true
+        }],
+        "subTitle": [{
+          "fontFamily": "Segoe UI",
+          "fontSize": 9,
+          "fontColor": { "solid": { "color": "#B8B3D1" } },
+          "alignment": "left",
+          "titleWrap": true
+        }],
+        "spacing": [{ "customizeSpacing": true, "spaceBelowTitle": 4, "spaceBelowSubTitle": 8, "spaceBelowTitleArea": 12 }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#17142A" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#17142A" } } }]
+      }
+    }
+  }
+}
