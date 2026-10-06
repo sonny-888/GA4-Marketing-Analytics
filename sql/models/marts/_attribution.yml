@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: mart_attribution_touch_credits
+    description: >
+      One row per (order, touchpoint session) with fractional credit under six rule-based models:
+      first click, last click, last non-direct click, linear, time decay and position-based (40/20/40).
+    columns:
+      - name: order_id
+        data_tests: [not_null]
+      - name: channel
+        data_tests: [not_null]
+
+  - name: mart_attribution_rule_based
+    description: Conversions and revenue credited to each channel under each rule-based model.
+
+  - name: attribution_markov
+    description: >
+      Data-driven attribution using a first-order Markov chain removal effect, with 95% bootstrap
+      confidence intervals on each channel's share. Logic: python/marketing_analytics/attribution.py.
+    config:
+      markov_bootstrap_iterations: "{{ var('markov_bootstrap_iterations') }}"
+    columns:
+      - name: channel
+        data_tests: [unique, not_null]
+
+  - name: mart_attribution_comparison
+    description: All seven attribution models side by side (one row per model and channel).
+    columns:
+      - name: model
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['first_click', 'last_click', 'last_non_direct_click', 'linear',
+                         'time_decay', 'position_based', 'markov']

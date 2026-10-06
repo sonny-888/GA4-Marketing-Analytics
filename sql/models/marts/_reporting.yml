@@ -1,0 +1,102 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Calendar dimension over the data range, with retail events (Black Friday, Cyber Monday, Christmas).
+    columns:
+      - name: date
+        data_tests: [unique, not_null]
+      - name: is_cart_tracking_ok
+        data_tests: [not_null]
+      - name: is_transaction_id_ok
+        data_tests: [not_null]
+      - name: is_revenue_tracking_ok
+        data_tests: [not_null]
+
+  - name: dim_channel
+    description: Channel dimension with type and display order.
+    columns:
+      - name: channel
+        data_tests: [unique, not_null]
+
+  - name: dim_attribution_model
+    description: Attribution model dimension (slicer on the attribution page).
+    columns:
+      - name: model
+        data_tests: [unique, not_null]
+
+  - name: dim_device
+    description: Device category dimension shared by sessions and orders.
+    columns:
+      - name: device_category
+        data_tests: [unique, not_null]
+
+  - name: dim_funnel_stage
+    description: Funnel stages in order (session → view product → add to cart → checkout → purchase).
+    columns:
+      - name: stage_order
+        data_tests: [unique, not_null]
+
+  - name: fct_attribution_credits
+    description: Rule-based attribution credit per (order, touchpoint, model), with order date.
+    columns:
+      - name: channel
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_channel')
+                field: channel
+      - name: model
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_attribution_model')
+                field: model
+
+  - name: fct_order_items
+    description: Product lines on deduplicated orders (item revenue reconciles to order revenue within 0.1%).
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_orders')
+                field: order_id
+      - name: item_name
+        data_tests: [not_null]
+
+  - name: dim_customers
+    description: One row per customer (browser with at least one order) with RFM scores and segment.
+    columns:
+      - name: user_pseudo_id
+        data_tests: [unique, not_null]
+      - name: rfm_segment
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Champions', 'Repeat, lapsing', 'Big one-off spenders', 'New customers', 'At risk',
+                         'Low-value one-offs']
+      - name: days_to_repeat
+        description: Days from the first buying day to the second; null if the customer hasn't come back.
+
+  - name: customer_clv
+    description: BG/NBD repeat-purchase probability and expected 90-day value per customer.
+    columns:
+      - name: user_pseudo_id
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: user_pseudo_id
+
+  - name: mart_product_pairs
+    description: Pairs of products bought in the same order (30+ shared orders), with support, confidence and lift.
+    columns:
+      - name: product_a
+        data_tests: [not_null]
+      - name: orders_together
+        data_tests: [not_null]

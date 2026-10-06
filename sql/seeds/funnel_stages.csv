@@ -1,0 +1,6 @@
+stage_order,stage_name,ga4_event,description
+1,Session,session_start,Any visit to the store
+2,View product,view_item,Viewed at least one product page
+3,Add to cart,add_to_cart,Added at least one item to the basket
+4,Begin checkout,begin_checkout,Started the checkout flow
+5,Purchase,purchase,Completed an order

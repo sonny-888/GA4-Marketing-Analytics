@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fct_sessions
+    description: One row per session with attribution, engagement, funnel flags and deduplicated revenue.
+    columns:
+      - name: session_key
+        data_tests: [unique, not_null]
+      - name: session_channel_group
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Direct', 'Organic Search', 'Paid Search', 'Referral', 'Internal Referral',
+                         'Display', 'Email', 'Affiliates', 'Organic Social', 'Obfuscated', 'Unassigned']
+      - name: revenue_usd
+        data_tests: [not_null]
+
+  - name: fct_orders
+    description: One row per deduplicated purchase.
+    columns:
+      - name: order_id
+        data_tests: [unique, not_null]
+      - name: session_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_sessions')
+                field: session_key
+
+  - name: dim_users
+    description: One row per user_pseudo_id with acquisition source and lifetime activity.
+    columns:
+      - name: user_pseudo_id
+        data_tests: [unique, not_null]
+

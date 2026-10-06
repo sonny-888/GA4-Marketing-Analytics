@@ -1,0 +1,8 @@
+model,model_label,sort_order,is_data_driven,description
+last_click,Last click,1,false,100% of credit to the final session before purchase
+last_non_direct_click,Last non-direct click,2,false,100% to the final session that is not Direct
+first_click,First click,3,false,100% to the first session in the 30-day lookback
+linear,Linear,4,false,Equal credit to every session in the journey
+time_decay,Time decay,5,false,Credit halves for every 7 days before the purchase
+position_based,Position-based (40/20/40),6,false,40% first / 40% last / 20% split across the middle
+markov,Data-driven (Markov),7,true,Markov chain removal effect learned from all journeys incl. non-converting ones

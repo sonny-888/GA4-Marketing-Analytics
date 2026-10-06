@@ -1,0 +1,13 @@
+channel,channel_type,sort_order,description
+Organic Search,Earned,1,Unpaid clicks from search engines (SEO)
+Referral,Earned,2,Links from other websites
+Direct,Direct,3,Typed URL / bookmarks / no known source
+Paid Search,Paid,4,Search ads (Google Ads cpc)
+Email,Owned,5,Email campaigns
+Affiliates,Paid,6,Affiliate partner links
+Display,Paid,7,Display / banner ads
+Organic Social,Earned,8,Unpaid social media
+Obfuscated,Unattributable,9,Source masked by Google in the public sample
+Unknown,Unattributable,10,Returned from the payment page with no earlier visit in the data; real source unknown
+Internal Referral,Tracking artefact,11,Self-referral from the store's own domain (e.g. returning from payment)
+Unassigned,Unattributable,12,Source could not be classified

@@ -1,0 +1,37 @@
+name: marketing_analytics
+version: "1.0.0"
+config-version: 2
+profile: marketing_analytics
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  # Root of the local data lake, relative to this dbt folder (dbt is always run from sql/)
+  ga4_raw_path: "../data/raw/ga4/*/events.parquet"
+  # Own domains: referrals from these are self-referrals (checkout/payment hops), not a real channel
+  internal_domains: ["shop.googlemerchandisestore.com", "googlemerchandisestore.com"]
+  # Attribution settings
+  attribution_lookback_days: 30       # touchpoints older than this before an order are ignored
+  time_decay_half_life_days: 7        # credit halves for every 7 days before conversion
+  markov_bootstrap_iterations: 200
+
+seeds:
+  marketing_analytics:
+    +schema: reference
+
+models:
+  marketing_analytics:
+    staging:
+      +schema: staging
+      +materialized: table
+    intermediate:
+      +schema: intermediate
+      +materialized: table
+    marts:
+      +schema: marts
+      +materialized: table

@@ -1,0 +1,20 @@
+version: 2
+
+seeds:
+  - name: channels
+    description: Channel lookup with type (Paid / Owned / Earned) and display order for reporting.
+    columns:
+      - name: channel
+        data_tests: [unique, not_null]
+
+  - name: funnel_stages
+    description: Funnel stage names and order.
+    columns:
+      - name: stage_order
+        data_tests: [unique, not_null]
+
+  - name: attribution_models
+    description: Attribution model lookup with display labels, order and plain-English descriptions.
+    columns:
+      - name: model
+        data_tests: [unique, not_null]

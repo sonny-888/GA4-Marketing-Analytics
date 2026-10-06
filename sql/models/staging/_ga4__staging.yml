@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_ga4__events
+    description: One row per GA4 event with common event_params flattened.
+    columns:
+      - name: event_key
+        description: Surrogate key (hash of user, timestamp, event name and params).
+        data_tests: [unique, not_null]
+      - name: event_date
+        data_tests: [not_null]
+      - name: event_name
+        data_tests: [not_null]
+      - name: user_pseudo_id
+        data_tests: [not_null]
+      - name: session_key
+        data_tests: [not_null]
+
+  - name: stg_ga4__event_items
+    description: One row per item on an e-commerce event.
+    columns:
+      - name: event_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_ga4__events')
+                field: event_key
