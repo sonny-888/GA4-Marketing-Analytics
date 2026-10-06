@@ -1,0 +1,50 @@
+data/
+*.duckdb
+*.duckdb.wal
+.venv/
+__pycache__/
+*.json.key
+sql/target/
+sql/logs/
+sql/dbt_packages/
+.ipynb_checkpoints/
+
+# Power BI project local files
+dashboard/**/.pbi/localSettings.json
+dashboard/**/.pbi/cache.abf
+
+
+# Secrets: never commit credentials
+.env
+.env.*
+*.pem
+*.key
+*credentials*.json
+*service-account*.json
+client_secret*.json
+
+# Tool caches and build output
+.pytest_cache/
+*.egg-info/
+sql/.user.yml
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+
+# Local working files
+docs/review/
+docs/review_report.pdf
+figures/powerbi/
+
+# The .pbix (28 MB, data included) is attached to the GitHub release, not committed
+dashboard/*.pbix
+
+# Generated Power BI project (rebuilt by dashboard/build_pbip.py)
+dashboard/*.Report/
+dashboard/*.SemanticModel/
+dashboard/*.pbip
+
+# Report source (kept locally; only the PDF is published)
+report/report.html
